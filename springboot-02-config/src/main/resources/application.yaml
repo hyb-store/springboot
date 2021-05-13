@@ -1,0 +1,70 @@
+#application.properties  语法结构 ：key=value
+##普通的key-value
+#name=zhangsan
+#student.name=zhangsan
+#student.age=18
+#############################################################
+#application.yml  语法结构 ：key：空格 value
+
+# 对空格的要求十分高
+
+##普通的key-value
+#name: zhangsan
+#
+#
+##对象
+#student:
+#  name: zhangsan
+#  age: 18
+#
+## 对象的行内写法
+#student2: {name: zhangsan,age: 3}
+#
+## 数组
+#pets:
+#  - cat
+#  - dog
+#  - pig
+#
+## 数组的行内写法
+#pets2: [cat,dog,pig]
+##########################################################
+
+#person:
+#  name: zhangsan${random.uuid}
+#  age: ${random.int}
+#  happy: false
+#  birth: 2000/11/11
+#  maps: {k1: v1,k2: v2}
+#  hello: hi
+#  lists:
+#    - music
+#    - code
+#    - girl
+#  dog:
+## 如果hello不存在，默认为hello_旺财,存在则为本身值_旺财
+#    name: ${person.hello:hello}_旺财
+#    age: 3
+########################################################
+#server:
+#  port: 8084
+
+#优先级第四高
+###############################################
+server:
+  port: 8085
+spring:
+  profiles:
+    active: dev
+#选择激活哪个版本
+---
+server:
+  port: 8086
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8087
+spring:
+  profiles: test
