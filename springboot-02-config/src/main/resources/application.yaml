@@ -62,7 +62,6 @@ server:
   port: 8086
 spring:
   profiles: dev
-
 ---
 server:
   port: 8087
