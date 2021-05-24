@@ -51,19 +51,22 @@
 
 #优先级第四高
 ###############################################
-server:
-  port: 8085
-spring:
-  profiles:
-    active: dev
-#选择激活哪个版本
----
-server:
-  port: 8086
-spring:
-  profiles: dev
----
-server:
-  port: 8087
-spring:
-  profiles: test
+#server:
+#  port: 8085
+#spring:
+#  profiles:
+#    active: dev
+##选择激活哪个版本
+#---
+#server:
+#  port: 8086
+#spring:
+#  profiles: dev
+#---
+#server:
+#  port: 8087
+#spring:
+#  profiles: test
+##########################################
+#查看哪些自动配置类生效
+debug: true
