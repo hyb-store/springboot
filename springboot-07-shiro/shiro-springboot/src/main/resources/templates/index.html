@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,5 +15,27 @@
 <br/>
 <a th:href="@{/user/update}">update</a>
 
+
+<hr>
+
+<!--用session实现，配合UserRealm中的session实现-->
+<!--<div th:if="${session.loginUser==null}">
+    <a th:href="@{/toLogin}">登录</a>
+</div>-->
+
+<!--用户已经身份验证通过-->
+<div shiro:notAuthenticated>
+    <a th:href="@{/toLogin}">登录</a>
+</div>
+
+<br>
+
+<div shiro:hasPermission="user:add">
+    <a th:href="@{/user/add}">add</a>
+</div>
+
+<div shiro:hasPermission="user:update">
+    <a th:href="@{/user/update}">update</a>
+</div>
 </body>
 </html>
