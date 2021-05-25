@@ -6,14 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduledService {
 
-    //在一个特定的时间执行这个方法
-     /*
-        0 49 11 * * ?   每天的11点49分00秒执行
-        0 0/5 11,12 * * ?   每天的11点和12点每个五分钟执行一次
-        0 15 10 ? * 1-6     每个月的周一到周六的10点15分执行一次
-        0/2 * * * * ?     每2秒执行一次
-     */
-
     /**
      * (1)*：表示匹配该域的任意值，假如在Minutes域使用*, 即表示每分钟都会触发事件。
      * (2)?:只能用在DayofMonth和DayofWeek两个域。它也匹配域的任意值，但实际不会。因为DayofMonth和 DayofWeek会相互影响。
@@ -30,6 +22,13 @@ public class ScheduledService {
      * (9)#:用于确定每个月第几个星期几，只能出现在DayofMonth域。例如在4#2，表示某月的第二个星期三。
      */
     //cron表达式  秒 分 时 日 月 周几
+    //在一个特定的时间执行这个方法
+     /*
+     0 49 11 * * ?   每天的11点49分00秒执行
+     0 0/5 11,12 * * ?   每天的11点和12点每个五分钟执行一次
+     0 15 10 ? * 1-6     每个月的周一到周六的10点15分执行一次
+     0/2 * * * * ?     每2秒执行一次
+     */
     @Scheduled(cron = "0 * * * * 0-7")
     public void hello(){
         System.out.println("hello,你被执行了");
